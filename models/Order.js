@@ -38,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       prodName: DataTypes.STRING,
       price: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
     },
     {
       sequelize,
@@ -46,3 +47,4 @@ module.exports = (sequelize, DataTypes) => {
   );
   return Order;
 };
+POST;
