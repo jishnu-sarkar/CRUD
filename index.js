@@ -1,6 +1,8 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const userRoute = require("./routes/userRoute");
+const orderRoute = require("./routes/orderRoute");
+
 const app = express();
 
 const PORT = 8080;
@@ -8,6 +10,8 @@ const PORT = 8080;
 app.use(bodyParser.json());
 
 app.use("/users", userRoute);
+
+app.use("/orders", orderRoute);
 
 // app.use("/putUser", userRoute);
 

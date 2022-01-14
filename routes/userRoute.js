@@ -1,7 +1,5 @@
-const route = require("color-convert/route");
 const express = require("express");
 const userController = require("../controllers/userController");
-// const postUserController = require("../controllers/postUserController");
 
 const router = express.Router();
 

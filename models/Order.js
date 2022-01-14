@@ -13,6 +13,27 @@ module.exports = (sequelize, DataTypes) => {
       models.User.hasMany(Order);
     }
   }
+
+  Order.getOrder = function (id) {
+    return this.findAll({
+      where: {
+        userId: id,
+      },
+    });
+  };
+
+  Order.getOrders = function () {
+    return this.findAll({});
+  };
+
+  Order.createOrder = function (val) {
+    return this.create({ ...val });
+  };
+
+  Order.updateOrder = function (updated_val, id) {
+    this.update({});
+  };
+
   Order.init(
     {
       prodName: DataTypes.STRING,

@@ -1,4 +1,3 @@
-// const { getAllUsers } = require("../models/getUser");
 const lodash = require("lodash");
 const db = require("../models");
 
