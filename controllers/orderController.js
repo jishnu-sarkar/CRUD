@@ -19,7 +19,23 @@ const getOrder = async (req, res) => {
 
 //Create orders for particular users
 const createOrder = async (req, res) => {
-  const result = db.sequelize.models.Order.createOrder();
+  if (lodash.isEmpty(req.body)) {
+    console.log(req.body);
+    return res.status(404).json({ message: "Unsufficient Data!!!" });
+  }
+  const id = req.params.id;
+  const data_user = {
+    prodName: req.body.prodName,
+    price: req.body.price,
+    userId: id,
+  };
+
+  const result = await db.sequelize.models.Order.createOrder(data_user);
+  if (result) {
+    return res.status(201).json({ Created: result });
+  } else {
+    return res.status(404).json({ message: "Something Went Wrong!!!" });
+  }
 };
 
 //Update order details of a particular user
