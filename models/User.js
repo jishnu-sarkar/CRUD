@@ -11,21 +11,25 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  User.get_User = function (id) {
+
+  User.getUser = function (id) {
     return this.findByPk(id);
   };
-  User.get_Users = function () {
+
+  User.getUsers = function () {
     return this.findAll({});
   };
-  User.put_User = function (val) {
+
+  User.createUser = function (val) {
     return this.create({
       ...val,
     });
   };
-  User.update_User = function (updated_val, id) {
+
+  User.updateUser = function (updated_val, id) {
     return this.update(
       {
-        email: updated_val.email,
+        ...updated_val,
       },
       {
         where: {
@@ -34,13 +38,19 @@ module.exports = (sequelize, DataTypes) => {
       }
     );
   };
-  User.delete_User = function (id) {
+
+  User.deleteUser = function (id) {
     return this.destroy({
       where: {
         id: id,
       },
     });
   };
+
+  User.deleteUsers = function () {
+    return this.destroy();
+  };
+
   User.init(
     {
       firstName: DataTypes.STRING,

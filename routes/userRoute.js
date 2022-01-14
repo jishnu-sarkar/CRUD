@@ -4,21 +4,19 @@ const userController = require("../controllers/userController");
 // const postUserController = require("../controllers/postUserController");
 
 const router = express.Router();
+
 //GET Requests
-
-router.get("/", userController.get_Users);
-
-router.get("/:id", userController.get_User);
+router.get("/", userController.getUsers);
+router.get("/:id", userController.getUser);
 
 //POST requests
-
 router.post("/", userController.createUsers);
 
 //PUT requests
-
-router.put("/:id", userController.update_user);
+router.put("/:id", userController.updateuser);
 
 //DELETE requests
-router.delete("/:id", userController.del_Users);
+router.delete("/:id", userController.delUser);
+router.delete("/", userController.delUsers);
 
 module.exports = router;
