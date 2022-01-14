@@ -48,7 +48,10 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.deleteUsers = function () {
-    return this.destroy();
+    return this.destroy({
+      where: {},
+      truncate: true,
+    });
   };
 
   User.init(
