@@ -17,10 +17,6 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER,
       },
-      // UserId: {
-      //   allowNull: false,
-      //   type: sequelize.INTEGER,
-      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -28,6 +24,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+      },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
     });
   },
