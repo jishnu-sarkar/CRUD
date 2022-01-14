@@ -4,10 +4,13 @@ const db = require("../models");
 //Display All Users
 const getUsers = async (req, res) => {
   const result = await db.sequelize.models.User.get_Users();
-  const result_js = result.map((e) => e.toJSON());
-
-  console.log(result_js);
-  res.send(result_js);
+  if (result) {
+    const result_js = result.map((e) => e.toJSON());
+    console.log(result_js);
+    return res.status(201).json({ result_js });
+  } else {
+    return res.status(404).json({ message: "Something Went Wrong!!!" });
+  }
 };
 
 //Display a Particular User
